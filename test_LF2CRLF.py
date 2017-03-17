@@ -8,7 +8,7 @@ from LF2CRLF import LF2CRLF
 class LF2CRLF_Tests(unittest.TestCase):
 
     def test_ansi_windows_line_ending(self):
-        lf2crlf = LF2CRLF('Test Files\\ANSI Windows.txt')
+        lf2crlf = LF2CRLF(os.join('Test Files', 'ANSI Windows.txt')
         self.assertEqual(lf2crlf.win_line_end, b'\r\n')
         self.assertEqual(lf2crlf.unix_line_end, b'\n')
         self.assertFalse(lf2crlf.unix_endings)
