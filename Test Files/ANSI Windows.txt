@@ -1,0 +1,2 @@
+ANSI
+Windows Line ending
