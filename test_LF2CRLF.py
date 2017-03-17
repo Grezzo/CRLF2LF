@@ -103,21 +103,5 @@ class LF2CRLF_Tests(unittest.TestCase):
         os.remove(os.path.join('Test Files', 'save test.txt'))
         self.assertNotEqual(content, new_content)
         
-    def test_save_fail(self):
-        shutil.copy2(
-            os.path.join('Test Files', 'Unix Read Only.txt'),
-            os.path.join('Test Files', 'save test.txt')
-        )
-        with open(os.path.join('Test Files', 'save test.txt'), 'rb') as file:
-            content = file.read()
-        lf2crlf = LF2CRLF(os.path.join('Test Files', 'save test.txt'))
-        lf2crlf.convert()
-        with self.assertRaises(PermissionError):
-            lf2crlf.save()
-        os.chmod(os.path.join('Test Files', 'save test.txt'), stat.S_IWRITE )
-        os.remove(os.path.join('Test Files', 'save test.txt'))
-
-
-        
 if __name__ == '__main__':
     unittest.main()
