@@ -1,7 +1,6 @@
 import unittest
 import os
 import shutil
-import stat
 
 from LF2CRLF import LF2CRLF
 
@@ -15,7 +14,7 @@ class LF2CRLF_Tests(unittest.TestCase):
         content = lf2crlf.content
         lf2crlf.convert()
         self.assertEqual(content, lf2crlf.content)
-        
+
     def test_unix_read_only(self):
         lf2crlf = LF2CRLF(os.path.join('Test Files', 'Unix Read Only.txt'))
         self.assertEqual(lf2crlf.win_line_end, b'\r\0\n\0')
